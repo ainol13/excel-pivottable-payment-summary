@@ -4,6 +4,10 @@ A personal Excel VBA utility that builds a centralized payment summary from bank
 
 The repository includes the VBA module (`PaymentSummary.bas`) and a fictional macro-enabled example workbook (`Fictional_Payment_Listing.xlsm`).
 
+## Why this macro exists
+
+Preparing a consolidated payment summary manually can take 20–30 minutes, and sometimes considerably longer depending on the number of worksheets and the volume of data. This macro automates the repetitive work of creating and arranging PivotTables, compiling payment IDs, and checking worksheets, helping reduce the task to a single run while providing a processing log for skipped sheets and missing fields.
+
 ## What the macro does
 
 Run `GeneratePaymentSummary` to have the macro:
