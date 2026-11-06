@@ -324,16 +324,27 @@ Public Sub GeneratePaymentSummary()
                     ' Add the Payment ID heading.
                     '----------------------------------------
 
+                    Dim pivotHeaderCell As Range
+
+                    Set pivotHeaderCell = pivotTable.TableRange2.Cells(1, 1)
+                    
                     With outputWs.Cells( _
                         pivotStart, _
                         PAYMENT_ID_COLUMN)
-
+                    
                         .Value = "Payment ID"
                         .HorizontalAlignment = xlCenter
                         .VerticalAlignment = xlCenter
                         .Font.Bold = True
-                        .Interior.Color = RGB(192, 230, 245)
-
+                        .Font.Color = pivotHeaderCell.DisplayFormat.Font.Color
+                    
+                        With .Interior
+                            .Pattern = pivotHeaderCell.DisplayFormat.Interior.Pattern
+                            .Color = pivotHeaderCell.DisplayFormat.Interior.Color
+                            .PatternColor = _
+                                pivotHeaderCell.DisplayFormat.Interior.PatternColor
+                        End With
+                    
                     End With
 
                     '----------------------------------------
